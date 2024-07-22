@@ -1,0 +1,22 @@
+import java.util.Scanner;
+public class Mavenproject5 {
+
+    public static double circumference(double radius){
+    return 2*Math.PI*radius;
+   
+    }
+    public static double area(double radius){
+    return Math.PI*radius*radius;
+    
+    }
+    
+    public static void main(String[] args) {
+        Scanner x=new Scanner(System.in);
+        System.out.print("Enter the radius of the circle:");
+        double r=x.nextDouble();
+        System.out.println("The circumference of the circle:"+circumference(r));
+        System.out.println("The area of the circle:"+area(r));
+
+    }
+    
+}
