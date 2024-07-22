@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Mavenproject2 {
+
+    public static void main(String[] args) {
+        Scanner x=new Scanner(System.in);
+        double sum=0;
+        for(int y=1;y<6;y++){
+            System.out.print("Enter Number-"+y+":");
+            double number =x.nextDouble();
+            sum+=number;
+        }
+        double avg=sum/5;
+        System.out.println("Sum of the 5 numbers: "+sum);
+        System.out.println("average of the 5 numbers: "+avg);
+    }
+}
