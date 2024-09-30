@@ -1,0 +1,92 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.mavenproject7;
+
+/**
+ *
+ * @author u222236
+ */
+import java.util.Scanner;
+public class Mavenproject7 {
+static int[]  stock={100,50,30};
+    public static void main(String[] args) {
+        Scanner x =new Scanner(System.in);
+        
+           boolean running =true;     
+        
+        while(running){
+        System.out.println("Grocery inventory Menu:\n1.Add stock\n2.Sell item\n3.Check Stock\n4.Exit");
+        System.out.print("Choose an option:");
+        int option=x.nextInt();
+        
+        switch(option){
+            case 1:
+              addStock(x);
+              break;
+            case 2:
+              sellItem(x);
+              break;
+            case 3:  
+              checkStock(x);
+              break;
+            case 4:
+              running=false;
+              System.out.println("Exiting system..");
+              break;
+              
+              default:
+              System.out.println("Invalid option. please choose again.");
+        
+        }
+        }
+        x.close();
+    }
+    public static void addStock(Scanner x){
+        System.out.print("Enter item number (0-2):");
+        int itemNumber=x.nextInt();
+        if(isValidItem(itemNumber)){
+            System.out.print("Enter amout of stock to add: ");
+            int amount =x.nextInt();
+            if(amount>0){
+            stock[itemNumber]+=amount;
+                System.out.println("Added"+amount+"units to item "+itemNumber);
+            }
+            else{System.out.println("Invalid stock amount");}
+        }
+        else{System.out.println("Invalid item number");}
+        }
+    
+    public static void sellItem(Scanner x){
+        System.out.print("Enter item nuber (0-2):");
+        int itemNumber=x.nextInt();
+        if(isValidItem(itemNumber)){
+            System.out.print("Enter amout to sell :");
+            int amount=x.nextInt();
+            if(amount>0&& stock[itemNumber]>=amount){
+            stock[itemNumber]-=amount;
+                System.out.println("sold"+amount+"units of item "+itemNumber);
+            }
+            else{System.out.println("Invalid amount or insufficient stock");}
+            
+        }
+        else{System.out.println("Invalid item number");}
+    }
+    public static void checkStock(Scanner x){
+        System.out.print("Enter item number (0-2)");
+        int itemNumber=x.nextInt();
+        if(isValidItem(itemNumber)){
+            System.out.println("Item "+itemNumber+"has "+stock[itemNumber]+"units in stock"); 
+        }
+        else{System.out.println("Invalid item number");}
+    
+    
+    }
+    
+    public static boolean isValidItem(int itemNumber){
+    return itemNumber>=0&&itemNumber<stock.length;
+    }
+    
+    
+}
